@@ -10,12 +10,12 @@ class Connection {
    private $IdConexion;
   
    function __construct() {
-      $this->IdConexion = mysql_connect(self::servidor, self::usuario, self::clave) or die('Imposible conectar con base de datos.');
-      mysql_select_db(self::bd, $this->IdConexion);
+      $this->IdConexion = mysqli_connect(self::servidor, self::usuario, self::clave) or die('Imposible conectar con base de datos.');
+      mysqli_select_db(self::bd, $this->IdConexion);
    }
 
    function __destruct() {
-      mysql_close($this->IdConexion);
+      mysqli_close($this->IdConexion);
    }   
 
    function getConexion() {

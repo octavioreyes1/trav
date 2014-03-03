@@ -26,7 +26,7 @@ class LoginDaoTest extends PHPUnit_Framework_TestCase
   PRIMARY KEY (id),
   KEY fk_Usuarios_TipoUsuarios1 (idTipoUsuario),
   CONSTRAINT fk_Usuarios_TipoUsuarios1 FOREIGN KEY (idTipoUsuario) REFERENCES TipoUsuarios (id) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
 ");
 
     }

@@ -1,6 +1,6 @@
 <?php
 
-   require_once '../../classes/Connection.php';
+   require_once 'classes/Connection.php';
 class LoginDaoTest extends PHPUnit_Framework_TestCase
 {
     /**

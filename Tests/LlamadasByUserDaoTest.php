@@ -188,11 +188,11 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
-        $this->pdo->query("DROP TABLE Extensiones");
-        $this->pdo->query("DROP TABLE Dependencias");
-        $this->pdo->query("DROP TABLE Llamadas");
-        $this->pdo->query("DROP TABLE Usuarios");
-        $this->pdo->query("DROP TABLE TipoUsuarios");
+        //$this->pdo->query("DROP TABLE Extensiones");
+        //$this->pdo->query("DROP TABLE Dependencias");
+        //$this->pdo->query("DROP TABLE Llamadas");
+        //$this->pdo->query("DROP TABLE Usuarios");
+        //$this->pdo->query("DROP TABLE TipoUsuarios");
     }
 
 

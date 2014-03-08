@@ -11,7 +11,7 @@ class Connection {
   
    function __construct() {
       $this->IdConexion = mysqli_connect(self::servidor, self::usuario, self::clave) or die('Imposible conectar con base de datos.');
-      mysqli_select_db(self::bd, $this->IdConexion);
+      mysqli_select_db($this->IdConexion, self::bd);
    }
 
    function __destruct() {

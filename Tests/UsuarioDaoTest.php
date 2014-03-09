@@ -15,7 +15,7 @@ class UsuarioDaoTest extends PHPUnit_Framework_TestCase {
    public function setUp() {
       $this->pdo = new PDO($GLOBALS['db_dsn'], $GLOBALS['db_username'], $GLOBALS['db_password']);
       $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $this->pdo->query("DROP TABLE IF EXISTS TipoUsuarios");
+/*      $this->pdo->query("DROP TABLE IF EXISTS TipoUsuarios");
       $this->pdo->query("CREATE TABLE TipoUsuarios (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   descripcion varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
@@ -39,11 +39,12 @@ class UsuarioDaoTest extends PHPUnit_Framework_TestCase {
   CONSTRAINT fk_Usuarios_TipoUsuarios1 FOREIGN KEY (idTipoUsuario) REFERENCES TipoUsuarios (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 ");     
+*/
    }
 
    public function tearDown() {
-      $this->pdo->query("DROP TABLE Usuarios");
-      $this->pdo->query("DROP TABLE TipoUsuarios");
+    //  $this->pdo->query("DROP TABLE Usuarios");
+    //  $this->pdo->query("DROP TABLE TipoUsuarios");
    }
 
    public function testInsert() {      

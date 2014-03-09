@@ -1,26 +1,62 @@
 <?php
-/*  Clase mySQLDB para acceder a bases de datos mySQL. */
-class Connection {
+/**
+ * Connection.php
+ * 
+ * PHP version 5
+ * 
+ * @category BaseDatos
+ * @package  CallCenter.Bd
+ * @author   Ivan Tinajero <ivanetinajero@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     http://callcenter.sazacatecas.gob.mx
+ */
 
-   const servidor = 'localhost'; /* Sustituir por valor adecuado */
-   const usuario = 'root'; /* Sustituir por valor adecuado */
-   const clave = ''; /* Sustituir por valor adecuado */
-   const bd = 'callcenter'; /* Nombre de la base de datos */
+/**
+ * PHP version 5
+ * 
+ * @category Bd
+ * @package  CallCenter.Bd
+ * @author   Ivan Tinajero <ivanetinajero@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     http://callcenter.sazacatecas.gob.mx
+ */
+class Connection
+{
 
-   private $IdConexion;
-  
-   function __construct() {
-      $this->IdConexion = mysqli_connect(self::servidor, self::usuario, self::clave) or die('Imposible conectar con base de datos.');
-      mysqli_select_db($this->IdConexion, self::bd);
-   }
+    const SERVIDOR = 'localhost'; /* Sustituir por valor adecuado */
+    const USUARIO = 'root'; /* Sustituir por valor adecuado */
+    const CLAVE = ''; /* Sustituir por valor adecuado */
+    const BD = 'callcenter'; /* Nombre de la base de datos */
 
-   function __destruct() {
-      mysqli_close($this->IdConexion);
-   }   
+    private $_IdConexion;
 
-   function getConexion() {
-      return $this->IdConexion;
-   }
+    /**
+    * Constructor de la clase
+    */
+    function __construct() 
+    {
+         $this->_IdConexion=mysqli_connect(self::SERVIDOR, self::USUARIO, self::CLAVE)
+             or die('Imposible conectar con base de datos.');
+         mysqli_select_db($this->_IdConexion, self::BD);
+    }
+
+    /**
+    * Funcion para cerrar la conexion
+    */
+    function __destruct() 
+    {
+        mysqli_close($this->_IdConexion);
+    }
+
+    /**
+    * Metodo para regresar una instancia de la conexion abierta
+    * 
+    * @return type
+    */
+    function getConexion() 
+    {
+         return $this->_IdConexion;
+    }
 
 }
 

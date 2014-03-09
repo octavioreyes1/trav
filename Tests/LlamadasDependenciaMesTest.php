@@ -43,7 +43,7 @@ class LlamadasDependenciaMesTest extends PHPUnit_Framework_TestCase
       $arrDependencias=$llamadaDao->getLlamadasPorDependenciaMes();
       
       // El assert es que me regrese un array   
-      $this->assertEquals(1, count($arrDependencias));
+      $this->assertGreaterThan(0, count($arrDependencias));
       
     }
 }

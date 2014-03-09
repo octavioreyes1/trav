@@ -20,7 +20,7 @@ function findLlamadasByUser($idUsuario) {
         Llamadas inner join Extensiones on Llamadas.idExtension=Extensiones.id
                  inner join Dependencias on Dependencias.id=extensiones.idDependencia
 where Llamadas.idUsuario=$idUsuario limit 0, 10";                 
-      $result = mysqli_query($this->connDb, $sql);                    
+      $result = @mysqli_query($this->connDb, $sql);                    
       if ($result){
           $resultado=$result;
       }

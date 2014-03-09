@@ -21,6 +21,8 @@ session_start();
    $conn = new Connection();
    $llamadaDao = new LlamadasByUserDao($conn->getConexion());   
    $llamadas=$llamadaDao->findLlamadasByUser($idUsuario);
+   
+   
 ?>   
 <!DOCTYPE html>
 <html>
@@ -49,7 +51,8 @@ session_start();
              </tr>  
          </thead>
          <?php
-         
+      if ($llamadas)      
+      {
          while ($row = mysqli_fetch_array($llamadas, MYSQLI_ASSOC)) {            
             echo "<tr>";
             echo "<td><center>" . $row['numero'] . "</center></td>";
@@ -57,6 +60,7 @@ session_start();
             echo "<td><center>" . $row['dependencia'] . "</center></td>";
             echo "<tr>";
          }
+      }
          ?> 
          
       </table>

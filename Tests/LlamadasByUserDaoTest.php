@@ -201,7 +201,7 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
 	$conn = new Connection();
 	$llamadasByUserDao = new LlamadasByUserDao($conn->getConexion());   
         $llamadas=$llamadasByUserDao->findLlamadasByUser(1);        
-        $this->assertEquals("", $llamadas, mysqli_num_rows($llamadas));
+        $this->assertEquals("", $llamadas);
         
     }
 

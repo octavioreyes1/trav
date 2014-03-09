@@ -41,7 +41,7 @@ session_start();
    </head>
    <body>
       <a href="menu.html"><img src="images/home.png" title="Ir al menu"></a>
-      <h3>Llamadas por Dependencia</h3>
+      <h3>Ultimas llamadas atendidas</h3>
       <table border="1">
          <thead>
             <tr>
@@ -51,16 +51,16 @@ session_start();
              </tr>  
          </thead>
          <?php
-      if ($llamadas)      
-      {
-         while ($row = mysqli_fetch_array($llamadas, MYSQLI_ASSOC)) {            
+         
+          foreach($llamadas as $fila){
             echo "<tr>";
-            echo "<td><center>" . $row['numero'] . "</center></td>";
-            echo "<td>" . $row['fecha'] . "</td>";
-            echo "<td><center>" . $row['dependencia'] . "</center></td>";
+            echo "<td><center>" . $fila['numero'] . "</center></td>";
+            echo "<td>" . $fila['fecha'] . "</td>";
+            echo "<td><center>" . $fila['dependencia'] . "</center></td>";
             echo "<tr>";
-         }
-      }
+          }
+            
+ 
          ?> 
          
       </table>
@@ -68,4 +68,3 @@ session_start();
 </html>
 <?php
 }
-?>

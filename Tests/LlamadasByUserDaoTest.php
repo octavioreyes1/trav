@@ -195,7 +195,8 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
         //$this->pdo->query("DROP TABLE TipoUsuarios");
     }
 
-
+    // Se insertaron previamente 22 registros para el usuario con id=1, pero la consulta limita a un maximo de 10 registros
+    // Para ver los ultimas llamadas atendidas por el usuario especifico
     public function testLlamadasByUserDao()
     {
 	$conn = new Connection();       
@@ -206,14 +207,15 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
         
     }
 
- /* public function testLlamadasByUserDaoFakeId()
+    //Probar que regresa 0 resultados cuando se buscan las llamadas por un id de usuario que no existe
+    public function testLlamadasByUserDaoInvalidId()
     {
 	$conn = new Connection();
  	$llamadasByUserDao = new LlamadasByUserDao($conn->getConexion());   
         $llamadas=$llamadasByUserDao->findLlamadasByUser(234);
-        $this->assertEquals(null, $llamadas);
+        $this->assertEquals(0, count($llamadas));
     }
-*/
+
     
     
 }

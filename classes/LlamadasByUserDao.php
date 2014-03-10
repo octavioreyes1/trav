@@ -45,7 +45,7 @@ function findUserByLlamadas() {
    
 // Buscar el total de llamadas atendidas por usuario   
 function findTotalLlamadasByUser($idUsuario) {                 
-      $sql="select count(llamadas.idUsuario) as total from llamadas where llamadas.idUsuario=$idUsuario";                 
+      $sql="select count(Llamadas.idUsuario) as total from Llamadas where Llamadas.idUsuario=$idUsuario";                 
       $result = mysqli_query($this->connDb, $sql);      
       if ($result){
       $resultado = array();

@@ -82,7 +82,7 @@ class ExtensionDao
             }
         }
 
-        return $objLlamada;
+        return $objLlamada->getExtension();
      
     }
 }

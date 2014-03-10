@@ -52,19 +52,32 @@ class LlamadaDao
     /**
     * addLlamada
     * 
-    * @param objLlamada $objLlamada objeto de tipo Llamada
+    * @param objLlamada   $objLlamada   objeto de tipo Llamada
+    * @param txtExtension $txtExtension extension a registrar
     * 
     * @return int
     */
     
-    function addLlamada($objLlamada)
+    function addLlamada($objLlamada,$txtExtension)
     {
 
-        $sql="insert into Llamadas values (0,now(),".
-        $objLlamada->getUsuario().",".
-        $objLlamada->getExtension().")";
-
-        $response=mysqli_query($this->_connDb, $sql);
+        $objExtensionDao = new ExtensionDao($this->_connDb);
+        
+        $response=0;
+        
+        $extension=$objExtensionDao->existeExtension($txtExtension);
+        
+        if ($extension>0) {
+            $sql="insert into Llamadas values (0,now(),".
+            $objLlamada->getUsuario().",".
+            $extension.")";
+            
+            $response=mysqli_query($this->_connDb, $sql);
+            
+        }else{
+            $response =0;
+        }
+        
 
         return $response ; // Regresa null o 1
 

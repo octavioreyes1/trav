@@ -1,46 +1,37 @@
 <?php
-session_start();
-?>
-
-<?php
-
-  $idUsuario = $_SESSION["idUsuario"];
-  if ($_SESSION["idUsuario"] == null){
-     die("Usuario No validado");
-  }
- else {
-      
-
+require_once 'classes/Connection.php';
+require_once 'classes/LlamadasByUserDao.php';
+require_once("classes/Sesion.php");
    
-   require_once 'classes/Connection.php';
-   require_once 'classes/LlamadasByUserDao.php';
-   
-   
-   
-   // Creamos conexion a base de datos
-   $conn = new Connection();
-   $llamadaDao = new LlamadasByUserDao($conn->getConexion());   
-   $llamadas=$llamadaDao->findLlamadasByUser($idUsuario);  
-   
+// Validamos que haya una sesion activa
+$sesion = new sesion();
+$idUsuario = $sesion->get("idUsuario");
+if( $idUsuario == false )  
+{
+   header("Location: index.php");
+} 
+// Creamos conexion a base de datos
+$conn = new Connection();
+$llamadaDao = new LlamadasByUserDao($conn->getConexion());   
+$llamadas=$llamadaDao->findLlamadasByUser($idUsuario);  
   
- ?>   
+?>   
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="UTF-8">
-      <title>Ultimas llamadas</title>
-      <style>
-         thead {color:green;}
-         tbody {color:blue;}
-         tfoot {color:red;}
-         table,th,td
-         {
-          border:1px solid black;
-         }
-      </style>
+      <title>Ultimas llamadas</title>     
    </head>
    <body>
-      <a href="menu.html"><img src="images/home.png" title="Ir al menu"></a>
+     <table>
+         <tr>
+            <td colspan="2"><b>Usuario:</b> <?php echo $sesion->get("username");?></td>         
+         </tr>
+         <tr>            
+            <td><a href="menu.php"><img src="images/home.png" title="Ir al menu"></a></td>
+            <td><a href="logout.php"><img src="images/exit.png" title="Cerrar Sesion"></a></td>
+         </tr>
+      </table>
       <h3>Ultimas llamadas atendidas</h3>
       <table border="1">
          <thead>
@@ -68,5 +59,3 @@ session_start();
       </table>
    </body>
 </html>
-<?php
-}

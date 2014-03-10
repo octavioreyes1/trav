@@ -8,7 +8,7 @@
             if (document.frmLogin.txtUsername.value==""){
                alert("El nombre de usuario es obligatorio.");return;
             }
-            if (document.frmLogin.txtpassword.value==""){
+            if (document.frmLogin.txtPassword.value==""){
                alert("El password es obligatorio");return;
             }                                       
          }

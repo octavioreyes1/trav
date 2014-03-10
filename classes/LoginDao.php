@@ -13,7 +13,7 @@ class LoginDao {
 function findLogin($usuario, $password) {           
       $id=null;
       $sql="select u.id"
-         . " from Usuarios u where u.username='$usuario' and u.password = '".md5($password)."'";                 
+         . " from Usuarios u where u.username='$usuario' and u.password = '".md5($password)."' and estatus='activo' ";                 
       $result = mysqli_query($this->connDb, $sql);              
       while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
          $id = $row['id'];

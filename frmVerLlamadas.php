@@ -12,6 +12,15 @@
  */
    require_once 'classes/Connection.php';
    require_once 'classes/LlamadaDao.php';
+   require_once("classes/Sesion.php");
+   
+   // Validamos que haya una sesion activa
+   $sesion = new sesion();
+   $usuario = $sesion->get("idUsuario");
+   if( $usuario == false )  
+   {
+      header("Location: index.php");
+   } 
    
    // Creamos conexion a base de datos
    $conn = new Connection();
@@ -22,19 +31,18 @@
 <html>
    <head>
       <meta charset="UTF-8">
-      <title>Llamadas por Dependencia</title>
-      <style>
-         thead {color:green;}
-         tbody {color:blue;}
-         tfoot {color:red;}
-         table,th,td
-         {
-          border:1px solid black;
-         }
-      </style>
+      <title>Llamadas por Dependencia</title>    
    </head>
    <body>
-      <a href="menu.html"><img src="images/home.png" title="Ir al menu"></a>
+      <table border="0">
+         <tr>
+            <td colspan="2"><b>Usuario:</b> <?php echo $sesion->get("username");?></td>         
+         </tr>
+         <tr>            
+            <td><a href="menu.php"><img src="images/home.png" title="Ir al menu"></a></td>
+            <td><a href="logout.php"><img src="images/exit.png" title="Cerrar Sesion"></a></td>
+         </tr>
+      </table>
       <h3>Llamadas por Dependencia</h3>
       <table border="1">
          <thead>

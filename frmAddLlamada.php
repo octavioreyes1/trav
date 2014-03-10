@@ -11,9 +11,17 @@
 * @link     http://callcenter.sazacatecas.gob.mx
 */
 
+// Validamos que haya una sesion activa
+require_once("classes/Sesion.php");
+$sesion = new sesion();
+$usuario = $sesion->get("idUsuario");
+if( $usuario == false )  
+{
+   header("Location: index.php");
+} 
+   
 extract($_GET);
 extract($_POST);
-
  
 ?>
 <!DOCTYPE html>
@@ -25,7 +33,15 @@ extract($_POST);
     </head>
    
    <body>
-      <a href="menu.html"><img src="images/home.png" title="Ir al menu"></a>
+      <table>
+         <tr>
+            <td colspan="2"><b>Usuario:</b> <?php echo $sesion->get("username");?></td>         
+         </tr>
+         <tr>            
+            <td><a href="menu.php"><img src="images/home.png" title="Ir al menu"></a></td>
+            <td><a href="logout.php"><img src="images/exit.png" title="Cerrar Sesion"></a></td>
+         </tr>
+      </table>
       <h3>Registro de Llamadas transferidas en el Call Center</h3>
       <h4>
 <?php 

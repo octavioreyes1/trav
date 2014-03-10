@@ -10,10 +10,11 @@ class Example extends PHPUnit_Extensions_SeleniumTestCase
   public function testMyTestCase()
   {
     $this->open("/trav/index.php");
-    $this->type("name=txtUsername", "supervisor");
+    $this->type("name=txtUsername", "chabela");
     $this->type("name=txtPassword", "perez");
     $this->click("css=input[type=\"submit\"]");
     $this->waitForPageToLoad("30000");
+    $this->assertEquals("Menu", $this->getText("css=h3"));    
   }
 }
 ?>

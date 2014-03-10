@@ -33,10 +33,10 @@ class LlamadasDependenciaMesTest extends PHPUnit_Framework_TestCase
       $llamadaDao = new LlamadaDao($conn->getConexion());   
       
       $objLlamada=new Llamada(0);
-      $objLlamada->setExtension(3057);
+      $extension=3057;
       $objLlamada->setFecha("2014-03-08");
       $objLlamada->setUsuario(1);
-      $llamadaDao->addLlamada($objLlamada);
+      $llamadaDao->addLlamada($objLlamada,$extension);
       
       // Ahora el test me debe regresar un registro, ya que es de una dependencia
       

@@ -11,6 +11,9 @@
  * @link     http://callcenter.sazacatecas.gob.mx
  */
 require_once 'LlamadasDependenciaMes.php';
+require_once 'ExtensionDao.php';
+require_once 'ExtensionDao.php';
+
 /**
  * PHP version 5
  * 

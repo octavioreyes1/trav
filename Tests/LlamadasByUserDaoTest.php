@@ -207,14 +207,39 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
         
     }
 
+    // Buscar la lista de usuarios que atienden llamadas
+    public function testUserByLlamadasDao()
+    {
+	$conn = new Connection();       
+        
+	$UserByLlamadasDao = new LlamadasByUserDao($conn->getConexion());   
+        $usuarios = $UserByLlamadasDao->findUserByLlamadas();        
+        $this->assertEquals(3, count($usuarios));
+        
+    }
+
+    // Probar que el número de llamadas atendidas por usuario es el correcto
+    public function testTotalLlamadasByUserDao()
+    {
+	$conn = new Connection();       
+        
+	$llamadasByUserDao = new LlamadasByUserDao($conn->getConexion());   
+        $total_llamadas = $llamadasByUserDao->findTotalLlamadasByUser(1);        
+        $this->assertEquals(22, $total_llamadas);
+        
+    }
+
+    
+    
+    
     //Probar que regresa 0 resultados cuando se buscan las llamadas para un usuario que no ha atendido llamadas
-    public function testLlamadasByUserDaoInvalidId()
+    /*public function testLlamadasByUserDaoInvalidId()
     {
 	$conn = new Connection();
  	$llamadasByUserDao = new LlamadasByUserDao($conn->getConexion());   
         $llamadas=$llamadasByUserDao->findLlamadasByUser(4);
         $this->assertEquals(0, count($llamadas));
-    }
+    }*/
 
     
     

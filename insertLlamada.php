@@ -25,26 +25,14 @@ $mensaje="";
 // Creamos conexion a base de datos
 
 $conn = new Connection();
-$objExtensionDao = new ExtensionDao($conn->getConexion());
+$objLlamada=new Llamada();
+$objLlamada->setUsuario(1);
+$objLlamada->setFecha(date('Y-m-d'));
+
 $objLlamadaDao=new LlamadaDao($conn->getConexion());
 
-
-$objLlamada=$objExtensionDao->existeExtension($txtExtension);
-
-    // Regresa idExtension en objLlamada en caso de existir
-if ($objLlamada->getExtension()) {
-  
-     $objLlamada->setUsuario(1);
-     $objLlamada->setFecha(date('Y-m-d'));
-     $objLlamadaDao->addLlamada($objLlamada);
-
-     $response=1;
-
-} else {
-  
-     $response=0;
-
-}
+$response=$objLlamadaDao->addLlamada($objLlamada, $txtExtension);
+   
 
 $respuesta="response=".$response."&extension=".$txtExtension;
 header("Location: frmAddLlamada.php?".$respuesta);

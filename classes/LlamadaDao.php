@@ -65,10 +65,10 @@ class LlamadaDao
     {
       
         $sql="select id from Extensiones where numero =";
-        $sql.=mysql_real_escape_string($txtExtension);
+        $sql.=$txtExtension;
           
-        $query = @mysqli_query($this->_connDb, $sql);
-        $existe= mysqli_fetch_array($query); 
+        $result = @mysqli_query($this->_connDb, $sql);
+        //$existe= mysqli_fetch_array($query); 
         
         // $objExtensionDao = new ExtensionDao($this->_connDb);
         
@@ -76,7 +76,7 @@ class LlamadaDao
         
         //$extension=$objExtensionDao->existeExtension($txtExtension);
         
-        if ($existe>0) {
+        if ($result) {
             $sql="insert into Llamadas values (0,now(),".
             $objLlamada->getUsuario().","."(select id from Extensiones where numero=$txtExtension"."))";
             

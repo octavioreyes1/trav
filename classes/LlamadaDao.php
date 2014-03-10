@@ -67,12 +67,12 @@ class LlamadaDao
         $sql="select id from Extensiones where numero =";
         $sql.=$txtExtension;
           
-        $result = @mysqli_query($this->_connDb, $sql);
+        $result = mysqli_query($this->_connDb, $sql);
         //$existe= mysqli_fetch_array($query); 
         
         // $objExtensionDao = new ExtensionDao($this->_connDb);
         
-        $response=0;
+        $response=false;
         
         //$extension=$objExtensionDao->existeExtension($txtExtension);
         
@@ -83,7 +83,7 @@ class LlamadaDao
             $response=mysqli_query($this->_connDb, $sql);
             
         }else{
-            $response =0;
+            $response =false;
         }
 
         return $response ; // Regresa null o 1

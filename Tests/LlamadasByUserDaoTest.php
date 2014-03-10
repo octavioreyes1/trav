@@ -13,9 +13,16 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
     {
         $this->pdo = new PDO($GLOBALS['db_dsn'], $GLOBALS['db_username'], $GLOBALS['db_password']);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+// DROP TABLES
+  $this->pdo->query("DROP TABLE IF EXISTS Llamadas");        
+  $this->pdo->query("DROP TABLE IF EXISTS Usuarios");        
+  $this->pdo->query("DROP TABLE IF EXISTS TipoUsuarios");
+  $this->pdo->query("DROP TABLE IF EXISTS Extensiones");
+  $this->pdo->query("DROP TABLE IF EXISTS Dependencias");
+  
+ 
 // CREATE THE TABLE Dependencias
-        $this->pdo->query("DROP TABLE IF EXISTS Dependencias");
+        
         $this->pdo->query("CREATE TABLE Dependencias (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   nombre varchar(90) COLLATE latin1_general_ci DEFAULT NULL,
@@ -60,7 +67,7 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
 ");
         
 // CREATE TABLE TipoUsuarios
-        $this->pdo->query("DROP TABLE IF EXISTS TipoUsuarios");
+        
         $this->pdo->query("CREATE TABLE TipoUsuarios (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   descripcion varchar(80) COLLATE latin1_general_ci DEFAULT NULL,
@@ -70,7 +77,7 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
         $this->pdo->query("INSERT INTO TipoUsuarios VALUES (1,'Administrador'),(2,'Telefonista')");
 
 // CREATE THE TABLE Usuarios
-        $this->pdo->query("DROP TABLE IF EXISTS Usuarios");
+      
         $this->pdo->query("CREATE TABLE Usuarios (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   nombre varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
@@ -95,7 +102,7 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
         
         
 // CREATE THE TABLE Extensiones        
-        $this->pdo->query("DROP TABLE IF EXISTS Extensiones");
+        
         $this->pdo->query("CREATE TABLE Extensiones (
   id int(11) NOT NULL AUTO_INCREMENT,
   numero int(11) DEFAULT NULL,
@@ -122,7 +129,7 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
 ");
 
 // CREATE THE TABLE Llamadas
-        $this->pdo->query("DROP TABLE IF EXISTS Llamadas");
+        
         $this->pdo->query("CREATE TABLE Llamadas (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   fecha datetime DEFAULT NULL,

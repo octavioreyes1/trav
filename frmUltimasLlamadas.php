@@ -20,10 +20,10 @@ session_start();
    // Creamos conexion a base de datos
    $conn = new Connection();
    $llamadaDao = new LlamadasByUserDao($conn->getConexion());   
-   $llamadas=$llamadaDao->findLlamadasByUser($idUsuario);
+   $llamadas=$llamadaDao->findLlamadasByUser($idUsuario);  
    
-   
-?>   
+  
+ ?>   
 <!DOCTYPE html>
 <html>
    <head>
@@ -51,16 +51,18 @@ session_start();
              </tr>  
          </thead>
          <?php
-         
-          foreach($llamadas as $fila){
-            echo "<tr>";
-            echo "<td><center>" . $fila['numero'] . "</center></td>";
-            echo "<td>" . $fila['fecha'] . "</td>";
-            echo "<td><center>" . $fila['dependencia'] . "</center></td>";
-            echo "<tr>";
+          if (count($llamadas)>0){                     
+             foreach($llamadas as $fila){
+               echo "<tr>";
+               echo "<td><center>" . $fila['numero'] . "</center></td>";
+               echo "<td>" . $fila['fecha'] . "</td>";
+               echo "<td><center>" . $fila['dependencia'] . "</center></td>";
+               echo "</tr>";
+           } 
           }
-            
- 
+          else{
+              echo "No se han registrado llamadas";
+          }
          ?> 
          
       </table>

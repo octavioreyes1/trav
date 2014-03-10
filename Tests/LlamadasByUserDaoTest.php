@@ -198,14 +198,11 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
 
     public function testLlamadasByUserDao()
     {
-        $this->pdo->query("INSERT INTO Llamadas (id, fecha, idUsuario, idExtension) VALUES (1, '2014-03-04', 1, 1)");
-
-	$conn = new Connection();
-        
+	$conn = new Connection();       
         
 	$llamadasByUserDao = new LlamadasByUserDao($conn->getConexion());   
         $llamadas = $llamadasByUserDao->findLlamadasByUser(1);        
-        $this->assertEquals(1, count($llamadas));
+        $this->assertEquals(11, count($llamadas));
         
     }
 

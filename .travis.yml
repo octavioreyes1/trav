@@ -27,8 +27,9 @@ before_script:
   - "export DISPLAY=:99.0"
   - "wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar"
   - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
-  - sleep 5  
+  - "pear channel-discover pear.phpunit.de"
   - "pear install phpunit/PHPUnit_Selenium"
+  - sleep 5  
 
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use

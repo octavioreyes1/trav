@@ -15,7 +15,7 @@ class LlamadasByUserDao {
    }
 
 function findLlamadasByUser($idUsuario) {                 
-      $sql="select Extensiones.numero as numero, Llamadas.fecha fecha, Dependencias.nombre dependencia from Llamadas inner join Extensiones on Llamadas.idExtension=Extensiones.id                 inner join Dependencias on Dependencias.id=Extensiones.idDependencia where Llamadas.idUsuario=$idUsuario limit 0, 10";                 
+      $sql="select Extensiones.numero as numero, Llamadas.fecha fecha, Dependencias.nombre dependencia from Llamadas inner join Extensiones on Llamadas.idExtension=Extensiones.id                 inner join Dependencias on Dependencias.id=Extensiones.idDependencia where Llamadas.idUsuario=$idUsuario limit 0, 10";              
       $result = mysqli_query($this->connDb, $sql);      
       if ($result){
       $resultado = array();
@@ -29,7 +29,7 @@ function findLlamadasByUser($idUsuario) {
    
 // Buscar los usuarios que atienden llamadas
 function findUserByLlamadas() {                 
-      $sql="select usuarios.id as iduser, usuarios.username, concat(usuarios.nombre,' ',usuarios.paterno,' ', usuarios.materno) as nombrecompleto from usuarios where usuarios.idTipoUsuario=2";                 
+      $sql="select Usuarios.id as iduser, Usuarios.username, concat(Usuarios.nombre,' ',Usuarios.paterno,' ', Usuarios.materno) as nombrecompleto from Usuarios where Usuarios.idTipoUsuario=2";                 
       $result = mysqli_query($this->connDb, $sql);      
       if ($result){
       $resultado = array();

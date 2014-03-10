@@ -240,13 +240,13 @@ class LlamadasByUserDaoTest extends PHPUnit_Framework_TestCase
     
     
     //Probar que regresa 0 resultados cuando se buscan las llamadas para un usuario que no ha atendido llamadas
-    /*public function testLlamadasByUserDaoInvalidId()
+    public function testLlamadasByUserDaoUserWithoutLlamada()
     {
 	$conn = new Connection();
  	$llamadasByUserDao = new LlamadasByUserDao($conn->getConexion());   
         $llamadas=$llamadasByUserDao->findLlamadasByUser(4);
         $this->assertEquals(0, count($llamadas));
-    }*/
+    }
 
     
     

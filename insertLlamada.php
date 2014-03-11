@@ -16,6 +16,16 @@ require_once 'classes/Connection.php';
 require_once 'classes/Llamada.php';
 require_once 'classes/LlamadaDao.php';
 require_once 'classes/ExtensionDao.php';
+require_once 'classes/Sesion.php';
+   
+// Validamos que haya una sesion activa
+$sesion = new sesion();
+$IdUsuario = $sesion->get("idUsuario");
+if( $usuario == false )  
+{
+   header("Location: index.php");
+} 
+
 
 EXTRACT($_POST);
 EXTRACT($_GET);
@@ -26,7 +36,7 @@ $mensaje="";
 
 $conn = new Connection();
 $objLlamada=new Llamada();
-$objLlamada->setUsuario(1);
+$objLlamada->setUsuario($IdUsuario);
 $objLlamada->setFecha(date('Y-m-d'));
 
 $objLlamadaDao=new LlamadaDao($conn->getConexion());

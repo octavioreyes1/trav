@@ -26,13 +26,15 @@ class InsertLlamadaDaoTest extends PHPUnit_Framework_TestCase {
     
     public function testAddLlamadaDao()
     {
-        $conn = new Connection();
-        $objLlamadaDao = new LlamadaDao($conn->getConexion());
+        
         
         $txtExtension=3056;
         $objLlamada=new Llamada();
         $objLlamada->setFecha("2014-03-08");
         $objLlamada->setUsuario(1);
+        
+        $conn = new Connection();
+        $objLlamadaDao = new LlamadaDao($conn->getConexion());
         
         // Response debe regresar un 1, de que si inserto llamada
         

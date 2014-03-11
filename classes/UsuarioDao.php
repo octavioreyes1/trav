@@ -81,6 +81,7 @@ class UsuarioDao
             $oUsuario->setUsername($row['username']);
             $oUsuario->setFechaAlta($row['fechaAlta']);
             $oUsuario->setEstatus($row['estatus']);
+            $oUsuario->setPassword($row['password']);
 
             // Creamos el objeto de tipo TipoUsuario
             $oTipoUsuario = new TipoUsuario($row['idTipoUsuario']);
@@ -139,6 +140,37 @@ class UsuarioDao
             $oUsuario->setTipoUsuario($oTipoUsuario);           
         }
         return $oUsuario;
+    }
+    
+    /**
+     * Metodo para cambiar password de user
+     * 
+     * @param type $objUsuario: objeto Usuario
+     * @param type $nuevoPassword: nuevo password
+     * 
+     * @return \Usuario
+     * @author The Rojo<guillermorojocruz@gmail.com>
+     * 
+     */
+    function changePassword($objUsuario,$actual,$nuevoPassword,$passwordRepetido){
+      
+      $sucess=0; // Fracaso...
+
+      if(md5($actual)==$objUsuario->getPassword()){
+         
+         
+        if($nuevoPassword==$passwordRepetido){
+          
+          $sql="update Usuarios set password=md5('".$nuevoPassword."') where id=".$objUsuario->getId();  
+        
+          $response = mysqli_query($this->_connDb, $sql);  
+          
+          $sucess=$response; // Operacion Exitosa
+          
+        }
+      }
+      
+      return $sucess;
     }
 
 }

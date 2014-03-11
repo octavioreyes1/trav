@@ -1,6 +1,4 @@
 <?php
-require_once 'Usuario.php';
-require_once 'TipoUsuario.php';
 /**
  * UsuarioDao.php
  * 
@@ -12,7 +10,8 @@ require_once 'TipoUsuario.php';
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://callcenter.sazacatecas.gob.mx
  */
-
+require_once 'Usuario.php';
+require_once 'TipoUsuario.php';
 /**
  * PHP version 5
  * 
@@ -29,7 +28,7 @@ class UsuarioDao
     /**
      * Constructor de la clase
      * 
-     * @param type $connDb: conexion a la base de datos abierta
+     * @param connDb $connDb conexion a la base de datos abierta
      */
     function __construct($connDb) 
     {
@@ -38,7 +37,7 @@ class UsuarioDao
     /**
      * Metodo para insertar un usuario en la base de datos
      * 
-     * @param type $usuario: usuario
+     * @param usuario $usuario Objeto usuario
      * 
      * @return type
      */
@@ -97,8 +96,8 @@ class UsuarioDao
     /**
      * Metodo para cambiar el estatus de un usuario 
      * 
-     * @param type $estatus: estatus
-     * @param type      $id: id
+     * @param estatus $estatus nuevo Estatus
+     * @param id      $id      Identificador del usuario
      * 
      * @return type Description
      */
@@ -111,7 +110,8 @@ class UsuarioDao
     /**
      * Metodo para buscar un usuario por su id
      * 
-     * @param type $id: id a buscar
+     * @param id $id id a buscar
+     * 
      * @return \Usuario
      */
     function findById($id)
@@ -145,32 +145,36 @@ class UsuarioDao
     /**
      * Metodo para cambiar password de user
      * 
-     * @param type $objUsuario: objeto Usuario
-     * @param type $nuevoPassword: nuevo password
+     * @param objUsuario       $objUsuario       objeto Usuario
+     * @param actual           $actual           pass actual
+     * @param nuevoPassword    $nuevoPassword    nuevo password
+     * @param passwordRepetido $passwordRepetido confirmacion de password
      * 
      * @return \Usuario
      * @author The Rojo<guillermorojocruz@gmail.com>
      * 
      */
-    function changePassword($objUsuario,$actual,$nuevoPassword,$passwordRepetido){
+    function changePassword($objUsuario,$actual,$nuevoPassword,$passwordRepetido)
+    {
       
-      $sucess=0; // Fracaso...
+        $sucess=0; // Fracaso...
 
-      if(md5($actual)==$objUsuario->getPassword()){
+        if(md5($actual)==$objUsuario->getPassword()) {
          
          
-        if($nuevoPassword==$passwordRepetido){
-          
-          $sql="update Usuarios set password=md5('".$nuevoPassword."') where id=".$objUsuario->getId();  
-        
-          $response = mysqli_query($this->_connDb, $sql);  
-          
-          $sucess=$response; // Operacion Exitosa
-          
+            if($nuevoPassword==$passwordRepetido) {
+
+                $sql="update Usuarios set password=md5('".$nuevoPassword;
+                $sql.="') where id=".$objUsuario->getId();  
+
+                $response = mysqli_query($this->_connDb, $sql);  
+
+                $sucess=$response; // Operacion Exitosa
+
+            }
         }
-      }
       
-      return $sucess;
+        return $sucess;
     }
 
 }

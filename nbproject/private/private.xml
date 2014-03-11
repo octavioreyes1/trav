@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/call_center/Tests/LlamadasByUserDaoTest.php</file>
-            <file>file:/C:/wamp/www/call_center/classes/LlamadasByUserDao.php</file>
-            <file>file:/C:/wamp/www/call_center/Tests/LoginDaoTest.php</file>
+            <file>file:/C:/xampp/htdocs/trav/Tests/SeleniumLogin.html</file>
+            <file>file:/C:/xampp/htdocs/trav/Tests/LoginDaoTest.php</file>
+            <file>file:/C:/xampp/htdocs/trav/Tests/UsuarioDaoTest.php</file>
+            <file>file:/C:/xampp/htdocs/trav/Tests/SeleniumLogin.php</file>
         </group>
     </open-files>
 </project-private>

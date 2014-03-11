@@ -58,8 +58,8 @@ class ExtensionDao
     function existeExtension($extension)
     {
      
-        $sql="select id from Extensiones where numero=";
-        $sql.=mysql_real_escape_string($extension);
+        $sql="select id from Extensiones where numero=".$extension;
+        //$sql.=mysql_real_escape_string($extension);
         
         $objLlamada=new Llamada();
      
@@ -67,8 +67,7 @@ class ExtensionDao
           
         $row= mysqli_fetch_array($result);
         */
-     
-   
+        
         $query = @mysqli_query($this->_connDb, $sql);
         $registro = mysqli_fetch_array($query); 
         $key = array_keys($registro);

@@ -61,7 +61,7 @@ class Llamada
      */
     public function getUsuario() 
     {
-        return $this->usuario;
+        return $this->_usuario;
     }
     /**
      * Metodo get para atributo extension
@@ -103,7 +103,7 @@ class Llamada
      */
     public function setUsuario($usuario) 
     {
-        $this->usuario = $usuario;
+        $this->_usuario = $usuario;
     }
     /**
      * Metodo set para atributo extension

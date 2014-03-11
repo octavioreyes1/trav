@@ -1,5 +1,5 @@
 <?php
-class Example extends PHPUnit_Extensions_SeleniumTestCase
+class SeleniumInsertUserTest extends PHPUnit_Extensions_SeleniumTestCase
 {
   protected function setUp()
   {
@@ -7,7 +7,7 @@ class Example extends PHPUnit_Extensions_SeleniumTestCase
     $this->setBrowserUrl("http://www.tourzac.com/");
   }
 
-  public function testMyTestCase()
+  public function testInsertUser()
   {
     $this->open("/callCenter/index.php");
     $this->type("name=txtUsername", "octavio");

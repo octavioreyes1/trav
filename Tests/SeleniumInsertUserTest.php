@@ -25,7 +25,7 @@ class SeleniumInsertUserTest extends PHPUnit_Extensions_SeleniumTestCase
     $this->type("name=txtmaterno", "Diaz");
     $this->click("css=input[type=\"button\"]");
     $this->assertTrue((bool)preg_match('/^¿Estan correctos los datos[\s\S]$/',$this->getConfirmation())); 
-    $this->waitForPageToLoad("60000");
+    $this->waitForPageToLoad("30000");
     $this->assertEquals("El usuario itinajero fue dado de alta", $this->getText("//h3[2]"));
   }
 }

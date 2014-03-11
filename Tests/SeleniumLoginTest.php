@@ -15,7 +15,7 @@ class SeleniumLoginTest extends PHPUnit_Extensions_SeleniumTestCase
     $this->type("name=txtUsername", "admin");
     $this->type("name=txtPassword", "perez");
     $this->click("css=input[type=\"submit\"]");
-    $this->waitForPageToLoad("30000");
+    $this->waitForPageToLoad("60000");
     $this->assertEquals("Menu", $this->getText("css=h3"));
   }
 }

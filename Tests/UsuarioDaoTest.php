@@ -108,7 +108,7 @@ class UsuarioDaoTest extends PHPUnit_Framework_TestCase {
      $usuarioDao = new UsuarioDao($conn->getConexion());
      $objUsuario=$usuarioDao->findById(1);
      
-     $this->assertEquals(true,$usuarioDao->changePassword($objUsuario, 'perez','perez', 'perez'));
+     $this->assertEquals(1,$usuarioDao->changePassword($objUsuario, 'perez','perez', 'perez'));
    }
    
 }

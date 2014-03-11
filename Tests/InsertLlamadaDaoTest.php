@@ -38,7 +38,7 @@ class InsertLlamadaDaoTest extends PHPUnit_Framework_TestCase {
         
         // Response debe regresar un 1, de que si inserto llamada
         
-        $this->assertEquals(1, $objLlamadaDao->insertLlamada($objLlamada,$txtExtension));
+        $this->assertEquals(true, $objLlamadaDao->insertLlamada($objLlamada,$txtExtension));
         
     }
 }

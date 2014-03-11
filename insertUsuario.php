@@ -33,5 +33,5 @@
    $conn = new Connection();
    $usuarioDao = new UsuarioDao($conn->getConexion());   
    $usuarioDao->insert($usuario);
-   header('Location: frmVerUsuarios.php');
+   header('Location: frmVerUsuarios.php?user='.$txtUsername);
 ?>

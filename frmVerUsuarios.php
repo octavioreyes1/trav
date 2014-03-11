@@ -14,6 +14,9 @@
    require_once 'classes/UsuarioDao.php';
    require_once("classes/Sesion.php");
    
+   extract($_GET);
+   extract($_POST);
+   
    // Validamos que haya una sesion activa
    $sesion = new sesion();
    $usuario = $sesion->get("idUsuario");
@@ -25,7 +28,8 @@
    // Creamos conexion a base de datos
    $conn = new Connection();
    $usuariosDao = new UsuarioDao($conn->getConexion());   
-   $usuarios=$usuariosDao->findAll();
+   $usuarios=$usuariosDao->findAll();      
+      
 ?>   
 <!DOCTYPE html>
 <html>
@@ -48,7 +52,11 @@
             <td><a href="logout.php"><img src="images/exit.png" title="Cerrar Sesion"></a></td>
          </tr>
       </table>
-      <h3>Listado de Usuarios</h3>
+      <h3>Listado de Usuarios</h3><br/>
+      <?php
+      if (isset($user))
+          echo "<h3>El usuario ".$user." fue dado de alta</h3>"
+      ?>   
       <table border="1">
          <thead>
             <tr>

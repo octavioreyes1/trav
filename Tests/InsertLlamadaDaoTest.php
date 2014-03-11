@@ -30,7 +30,7 @@ class InsertLlamadaDaoTest extends PHPUnit_Framework_TestCase {
         $objLlamadaDao = new LlamadaDao($conn->getConexion());
         
         $txtExtension=3056;
-        $objLlamada=new Llamada(0);
+        $objLlamada=new Llamada();
         $objLlamada->setFecha("2014-03-08");
         $objLlamada->setUsuario(1);
         

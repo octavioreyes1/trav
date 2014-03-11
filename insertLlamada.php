@@ -31,7 +31,7 @@ $objLlamada->setFecha(date('Y-m-d'));
 
 $objLlamadaDao=new LlamadaDao($conn->getConexion());
 
-$response=$objLlamadaDao->addLlamada($objLlamada, $txtExtension);
+$response=$objLlamadaDao->insertLlamada($objLlamada, $txtExtension);
    
 
 $respuesta="response=".$response."&extension=".$txtExtension;

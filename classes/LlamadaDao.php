@@ -61,7 +61,7 @@ class LlamadaDao
     * @return int
     */
     
-    function addLlamada($objLlamada,$txtExtension)
+    function insertLlamada($objLlamada,$txtExtension)
     {
       
         

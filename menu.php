@@ -26,6 +26,7 @@
       <ul>
          <li><a href="frmAddLlamada.php">Registrar Llamada</a></li>
          <li><a href="frmAddUsuario.php">Agregar Usuario</a></li>
+         <li><a href="frmPassword.php">Cambiar Contraseña</a></li>
          <li><a href="frmVerLlamadas.php">Llamadas Por Dependencia</a></li>
          <li><a href="frmVerUsuarios.php">Lista Usuarios</a></li>
          <li><a href="frmVerLlamadasPorDependenciaMes.php">Lamadas por Dependencia Mes</a></li>

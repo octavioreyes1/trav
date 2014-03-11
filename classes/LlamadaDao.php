@@ -64,28 +64,22 @@ class LlamadaDao
     function addLlamada($objLlamada,$txtExtension)
     {
       
-        $sql="select id from Extensiones where numero =";
-        $sql.=$txtExtension;
+        //$sql="select id from Extensiones where numero =";
+        //$sql.=$txtExtension;
           
-        $result = mysqli_query($this->_connDb, $sql);
-        //$existe= mysqli_fetch_array($query); 
-        
+        //$result = mysqli_query($this->_connDb, $sql);
         // $objExtensionDao = new ExtensionDao($this->_connDb);
         
         //$extension=$objExtensionDao->existeExtension($txtExtension);
         
-        if ($result) {
-            $sql="insert into Llamadas values (0,now(),".
-            $objLlamada->getUsuario().","."(select id from Extensiones where numero=$txtExtension"."))";
-            $response=mysqli_query($this->_connDb, $sql);
+        //if ($result) {
+        $sql="insert into Llamadas values (0,now(),".
+        $objLlamada->getUsuario().","."(select id from Extensiones where numero=$txtExtension"."))";
+        $response=mysqli_query($this->_connDb, $sql);
             
-            return $response;
-            
-        }else{
-            $response =false;
-        }
-
-        return $response ; // Regresa null o 1
+        return $response;
+        
+        
 
     }
     

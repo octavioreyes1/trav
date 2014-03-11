@@ -30,6 +30,8 @@
          <li><a href="frmVerUsuarios.php">Lista Usuarios</a></li>
          <li><a href="frmVerLlamadasPorDependenciaMes.php">Lamadas por Dependencia Mes</a></li>
          <li><a href="frmUltimasLlamadas.php">Ver ultimas llamadas</a></li>
+         <li><a href="reportLlamadasByUsers.php">Ver total de llamadas por usuario</a></li>
+         
       </ul>     
    </body>
 </html>

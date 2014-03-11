@@ -16,7 +16,7 @@ class SeleniumInsertLlamadaTest extends PHPUnit_Extensions_SeleniumTestCase
     $this->click("css=input[type=\"submit\"]");
     $this->waitForPageToLoad("60000");
     $this->click("link=Registrar Llamada");
-    $this->waitForPageToLoad("60000");
+    $this->waitForPageToLoad("120000");
     $this->type("id=txtExtension", "3056");
     $this->click("css=input[type=\"submit\"]");
     $this->waitForPageToLoad("60000");

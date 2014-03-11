@@ -29,8 +29,9 @@ class LlamadaDao
     /**
     * Constructor de la clase
     * 
-    * @param type $connDb: Conexion abierta a la base de datos
+    * @param connDb $connDb Conexion a bd
     */
+    
     function __construct($connDb) 
     {
         $this->_connDb = $connDb;
@@ -64,7 +65,8 @@ class LlamadaDao
     function insertLlamada($objLlamada,$txtExtension)
     {
       
-        $sql="insert into Llamadas values (0,now(),".$objLlamada->getUsuario().","."(select id from Extensiones where numero=$txtExtension"."))";
+        $sql="insert into Llamadas values (0,now(),".$objLlamada->getUsuario().",".
+          "(select id from Extensiones where numero=$txtExtension"."))";
         
         $response = mysqli_query($this->_connDb, $sql);
         

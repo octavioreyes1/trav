@@ -1,5 +1,5 @@
 <?php
-class SeleniumLlamadasDependenciaTotal extends PHPUnit_Extensions_SeleniumTestCase
+class SeleniumLlamadasDependenciaTotalTest extends PHPUnit_Extensions_SeleniumTestCase
 {
   protected function setUp()
   {
